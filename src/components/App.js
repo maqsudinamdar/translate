@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Field from './Field';
-import Button from './Button';
+import LanguageContext from '../contexts/LanguageContext';
+import UserCreate from './UserCreate';
 
 class App extends React.Component {
 
@@ -27,8 +27,10 @@ class App extends React.Component {
                         onClick={ () => this.onLanguageSelect('dutch') }
                     />
                 </div>
-                <Field />
-                <Button />
+                <LanguageContext.Provider value={this.state.language} >
+                    <UserCreate />
+                </LanguageContext.Provider>
+
             </div>
         );
     };
